@@ -8,6 +8,11 @@ return {
   },
   keys = {
     { "<leader>fp", "<cmd>Neotree reveal toggle<cr>", desc = "Toggle Filetree" },
-    { "<leader>ft", "<cmd>NeotreeFocus<cr>", desc = "Focus Filetree" },
+    { "<leader>ft", "<cmd>Neotree<cr>", desc = "Focus Filetree" },
   },
+  opts = {
+    filesystem = {
+      use_libuv_file_watcher = true,
+    }
+  }
 }
