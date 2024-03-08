@@ -643,6 +643,7 @@ require('lazy').setup({
             },
           },
         },
+        groovyls = {},
       }
 
       -- Ensure the servers and tools above are installed
