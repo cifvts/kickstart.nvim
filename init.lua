@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -1017,11 +1017,11 @@ require('lazy').setup({
 })
 
 -- Configure fmt/import when saving .go files
-local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
+local format_sync_grp = vim.api.nvim_create_augroup('GoFormat', {})
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.go',
   callback = function()
-   require('go.format').goimport()
+    require('go.format').goimport()
   end,
   group = format_sync_grp,
 })
@@ -1037,6 +1037,11 @@ vim.filetype.add {
 
 -- CoPilot configuration without tab
 vim.g.copilot_assume_mapped = true
+
+-- [[ Custom Keymaps ]]
+-- switch between buffers
+vim.keymap.set('n', '<C-h>', '<cmd>bp<CR>', { desc = 'Switch to [P]revious buffer' })
+vim.keymap.set('n', '<C-l>', '<cmd>bn<CR>', { desc = 'Switch to [N]ext buffer' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
