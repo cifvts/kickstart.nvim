@@ -611,7 +611,13 @@ require('lazy').setup({
       ---@type table<string, vim.lsp.Config>
       local servers = {
         -- clangd = {},
-        gopls = {},
+        gopls = {
+          settings = {
+            gopls = {
+              buildFlags = { '-tags=integration_dynamo integration_cassandra integration_kafka integration' },
+            },
+          },
+        },
         pyright = {},
         -- rust_analyzer = {},
         --
