@@ -247,9 +247,6 @@ require('lazy').setup({
     config = function() require('guess-indent').setup {} end,
   },
 
-  -- yaml helm syntax
-  'towolf/vim-helm',
-
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -651,7 +648,9 @@ require('lazy').setup({
             },
           },
         },
-        groovyls = {},
+        groovyls = {
+          cmd = { 'java', '-jar', '/Users/andrea.agosti/github/groovy-language-server/build/libs/groovy-language-server-all.jar' },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -1020,13 +1019,10 @@ vim.filetype.add {
   },
 }
 
--- CoPilot configuration without tab
-vim.g.copilot_assume_mapped = true
-
 -- [[ Custom Keymaps ]]
--- switch between buffers
-vim.keymap.set('n', '<C-h>', '<cmd>bp<CR>', { desc = 'Switch to [P]revious buffer' })
-vim.keymap.set('n', '<C-l>', '<cmd>bn<CR>', { desc = 'Switch to [N]ext buffer' })
+-- switch between buffers (<C-h/l> reserved for window navigation)
+vim.keymap.set('n', '<S-h>', '<cmd>bp<CR>', { desc = 'Switch to [P]revious buffer' })
+vim.keymap.set('n', '<S-l>', '<cmd>bn<CR>', { desc = 'Switch to [N]ext buffer' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
