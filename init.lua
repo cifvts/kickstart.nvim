@@ -734,8 +734,14 @@ do
   ---@type table<string, vim.lsp.Config>
   local servers = {
     -- clangd = {},
-    -- gopls = {},
-    -- pyright = {},
+    gopls = {
+      settings = {
+        gopls = {
+          buildFlags = { '-tags=integration_dynamo integration_cassandra integration_kafka integration' },
+        },
+      },
+    },
+    pyright = {},
     -- tsc = {},
     --
     -- Some languages (like rust) have entire language plugins that can be useful:
@@ -743,6 +749,10 @@ do
     --
     -- But for many setups, the LSP (`rust_analyzer`) will work just fine
     -- rust_analyzer = {},
+
+    groovyls = {
+      cmd = { 'java', '-jar', '/Users/andrea.agosti/github/groovy-language-server/build/libs/groovy-language-server-all.jar' },
+    },
 
     stylua = {}, -- Used to format Lua code
 
