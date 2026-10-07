@@ -12,3 +12,9 @@ spell/
 nvim-pack-lock.json
 
 .DS_Store
+.backup_mcp
+node_modules/
+package.json
+package-lock.json
+lazy-lock.json
+lua/custom/plugins/windsurf.lua
